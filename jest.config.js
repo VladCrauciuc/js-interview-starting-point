@@ -1,7 +1,8 @@
 const config = {
-  transform: {
-    '^.+\\.js$': 'babel-jest',
-  },
+	transform: {
+		"^.+\\.js$": "babel-jest",
+	},
+	collectCoverage: true,
 };
 
 export default config;

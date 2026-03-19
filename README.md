@@ -47,6 +47,8 @@ yarn start <user x coordinate> <user y coordinate>
 
 ## Usage
 
+.env.example only contains an example of the API URL used to fetch. For full functionality, create a copy (cp .env.example .env), and provide the proper API locally.
+
 ```
 yarn start <user x coordinate> <user y coordinate>
 ```

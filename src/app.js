@@ -1,3 +1,11 @@
+import getToken from "./helpers/getToken.js";
+import getShopsList from "./helpers/getShopsList.js";
+import { endpoints } from "../api/endpoints.js";
+
+function distance([x1, y1], [x2, y2]) {
+	return Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2);
+}
+
 /**
  * @param {Object} position
  * @param {Number} position.x
@@ -6,20 +14,10 @@
  * @returns {Array<position>}
  */
 
-import getToken from "./helpers/getToken.js";
-import getShopsList from "./helpers/getShopsList.js";
-
-let tokenUrl = process.env.TOKEN_URL;
-let shopsUrl = process.env.SHOPS_URL;
-
-function distance([x1, y1], [x2, y2]) {
-	return Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2);
-}
-
 export async function getNearestShops(position) {
 	try {
-		let token = await getToken(tokenUrl);
-		let shops = await getShopsList(shopsUrl, token);
+		let token = await getToken(endpoints.tokenEndpoint);
+		let shops = await getShopsList(endpoints.shopsEndpoint, token);
 
 		return shops
 			.map((shop) => ({

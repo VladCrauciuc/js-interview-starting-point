@@ -4,7 +4,7 @@ describe("Token", () => {
 	beforeEach(() => {
 		jest.resetAllMocks();
 	});
-	it("should return the token", async () => {
+	it("returns the token", async () => {
 		global.fetch = jest.fn(() =>
 			Promise.resolve({
 				ok: true,
@@ -14,7 +14,7 @@ describe("Token", () => {
 
 		expect(typeof (await getToken("tokenURL"))).toBe("string");
 	});
-	it("should throw error for token fetch failure", async () => {
+	it("throws error for token fetch failure", async () => {
 		global.fetch = jest.fn(() =>
 			Promise.resolve({
 				ok: false,

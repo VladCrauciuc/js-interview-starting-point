@@ -16,8 +16,8 @@ function distance([x1, y1], [x2, y2]) {
 
 export async function getNearestShops(position) {
 	try {
-		let token = await getToken(endpoints.tokenEndpoint);
-		let shops = await getShopsList(endpoints.shopsEndpoint, token);
+		const token = await getToken(endpoints.tokenEndpoint);
+		const shops = await getShopsList(endpoints.shopsEndpoint, token);
 
 		return shops
 			.map((shop) => ({

@@ -4,7 +4,7 @@ describe("getShopsList", () => {
 	beforeEach(() => {
 		jest.resetAllMocks();
 	});
-	it("should return array of all shops", async () => {
+	it("returns array of all shops", async () => {
 		global.fetch = jest.fn().mockResolvedValueOnce({
 			ok: true,
 			json: () =>
@@ -23,7 +23,7 @@ describe("getShopsList", () => {
 		const shopsList = await getShopsList("shopsUrl", "token");
 		expect(Array.isArray(shopsList)).toBe(true);
 	});
-	it("should throw error for shops fetch failure", async () => {
+	it("throws error for shops fetch failure", async () => {
 		global.fetch = jest.fn(() =>
 			Promise.resolve({
 				ok: false,
